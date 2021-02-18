@@ -21,14 +21,16 @@ require([
           title: "St. Louis Crime Heatmap",
           content: "Crime {Crime} {type} Neighboorhood {Neighborhood} on {ILEADSStreet}."
         };
-
-        const csvLayer = new CSVLayer({
-          url: url,
-          copyright: "St. Louis Police Department",
-          latitudeField:"Lat",
+      
+const layer = new CSVLayer({
+        url: url,
+        title: "St. Louis Crime Heatmap",
+        copyright: "St. Louis Police Department",
+		latitudeField:"Lat",
         longitudeField:"Lon",
-          popupTemplate: template
-        });
+		popupTemplate: template,
+		renderer: renderer
+});
 
       csvLayer.renderer = {
         type: "heatmap", 
